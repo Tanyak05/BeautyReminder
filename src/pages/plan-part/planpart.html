@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+<!--         <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button> -->
+        <ion-title>Part of Your Beauty Plan</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-icon name="clipboard" item-left></ion-icon>
+        <h1>{{partPlan.time}}</h1>
+    </ion-item>
+
+    <ion-item>
+        <ion-list>
+            <ion-item-group reorder="{{isEditMode}}">
+                <ion-item *ngFor="let step of partPlan.steps">
+                    <ion-icon name="checkmark" item-start></ion-icon>
+                    {{step.description}}
+
+                    <button ion-button *ngIf="isEditMode" icon-only color="dark" clear (click)="editStep(step)" item-right>
+                        <ion-icon name="paper"></ion-icon>
+                    </button>
+                    <button ion-button *ngIf="isEditMode" icon-only color="dark" clear (click)="deleteStep(step)" item-right>
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                    
+                </ion-item>
+            </ion-item-group>
+        </ion-list>
+    </ion-item>
+
+    <ion-fab right bottom>
+        <button ion-fab mini (click)="addNote()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

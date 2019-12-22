@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Settings</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+
+    <ion-list>
+
+        <ion-list-header color="light">Rutines start time</ion-list-header>
+        <ion-item>
+          <ion-label>Morning</ion-label>
+          <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="morinigTime" (ionChange)='saveChanges()'></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evening</ion-label>
+          <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="eveningTime" (ionChange)='saveChanges()'></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Weekly</ion-label>
+          <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="weeklyTime" (ionChange)='saveChanges()'></ion-datetime>
+        </ion-item>
+        <ion-item>
+          <ion-label>Monthly</ion-label>
+          <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="monthlyTime" (ionChange)='saveChanges()'></ion-datetime>
+        </ion-item>
+    </ion-list>
+        
+        <ion-list>    
+          <ion-item-group>
+            <ion-item-divider color="light">Routine</ion-item-divider>
+            <ion-item>
+              <ion-label>Modify current part of your plan</ion-label>
+                 <ion-select [(ngModel)]="planPartTime" (ionChange)="partForEdit()">
+                    <ion-option value="0">Morning part</ion-option>
+                    <ion-option value="1">Evening Part</ion-option>
+                    <ion-option value="2">Weekly part</ion-option> 
+                    <ion-option value="monthly">Monthly part</ion-option>
+                   </ion-select>
+            </ion-item>
+            <ion-item>Create New</ion-item>
+          </ion-item-group>     
+    </ion-list>
+    
+  </ion-content>
+  
